@@ -1,0 +1,12 @@
+{
+    "name": "fbariy/gene-light",
+    "description": "Quick genetic algorithm implementation",
+    "autoload": {
+        "psr-4": {
+            "App\\":  "src/"
+        }
+    },
+    "require": {
+        "lstrojny/functional-php": "^1.14"
+    }
+}
