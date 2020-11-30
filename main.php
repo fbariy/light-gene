@@ -27,8 +27,31 @@ $initialPopulation = [
     ['The little Redis book', 'Domain driven design'],
 ];
 
+$stream = fopen("php://stdin","r");
+
+echo 'The list of available items:' . PHP_EOL . '=================' . PHP_EOL;
+
+foreach ($estimatedHash as $item => $estimation) {
+    echo "$item - $estimation" . PHP_EOL;
+}
+
+echo PHP_EOL . 'The population by default: ' . PHP_EOL . '=================' . PHP_EOL;
+
+foreach ($initialPopulation as $individual) {
+    echo "({$individual[0]}, {$individual[1]})" . PHP_EOL;
+}
+
+echo PHP_EOL . 'Enter the population size: ';
+$populationSize = fgets($stream);
+
+echo PHP_EOL . 'Enter the generations count: ';
+$generationsCount = fgets($stream);
+
+echo PHP_EOL . 'Popular books: ' . PHP_EOL . '=================' . PHP_EOL;
+
 $gene = new Gene(4, 5, 3);
-$res = $gene->process($initialPopulation, $estimatedHash);
+$result = $gene->process($initialPopulation, $estimatedHash);
 
-var_dump($res);
-
+foreach ($result as $item) {
+    echo "\"$item\"" . PHP_EOL;
+}
